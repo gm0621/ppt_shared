@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>不一定要上架，也能開始 Podcast｜笑點加強版｜Gimmy</title><style>
+:root{--paper:#f3efe6;--ink:#202d2b;--muted:#5d6962;--red:#ba402e;--line:#c4c8bb;--sans:"PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif;--serif:"Songti TC","Noto Serif TC","PMingLiU",serif}
+*{box-sizing:border-box}body{margin:0;background:#131b1a;color:var(--ink);font-family:var(--sans);min-height:100svh;overflow:hidden}button{font:inherit;cursor:pointer}button:focus-visible,a:focus-visible{outline:3px solid #ebaf65;outline-offset:4px}button:disabled{opacity:.32;cursor:default}.viewport{position:absolute;inset:0 0 70px;overflow:hidden}.deck{width:1920px;height:1080px;position:absolute;left:50%;top:50%;transform-origin:center}.slide{display:none;position:absolute;inset:0;background:var(--paper);padding:76px 112px 94px;overflow:hidden}.slide.active{display:block}.slide.dark{background:var(--ink);color:var(--paper);--muted:#bfc8bc;--line:#64726a;--red:#f49a7c}.top{height:66px;display:flex;align-items:flex-start;justify-content:space-between;font-size:25px;letter-spacing:3px;color:var(--muted)}.brand{display:flex;align-items:center;gap:16px;letter-spacing:1px}.rec-dot{width:17px;height:17px;border-radius:50%;background:var(--red);display:inline-block;flex:none}.foot{position:absolute;bottom:46px;left:112px;right:112px;display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:22px;font-size:23px;color:var(--muted);letter-spacing:1px}.content{height:740px;display:flex;flex-direction:column;justify-content:center}.eyebrow{font-size:30px;letter-spacing:4px;margin:0 0 28px;color:var(--muted)}h1,h2,h3,p,blockquote{margin:0}h1{font-size:125px;letter-spacing:-5px;line-height:1.3;font-weight:650}h2{font-size:100px;line-height:1.33;letter-spacing:-3px;font-weight:600}h3{font-size:53px;line-height:1.5;font-weight:500}p{font-size:42px;line-height:1.7}em{font-style:normal;color:var(--red)}.sub{margin-top:38px;color:var(--muted);font-size:37px}.serif{font-family:var(--serif);font-weight:600;letter-spacing:0}.split{display:grid;grid-template-columns:1.2fr 1fr;gap:90px;align-items:center}.center{text-align:center}.large{font-size:126px}.small-head{font-size:80px}.quote{font-size:78px;line-height:1.6}.mini{font-size:30px;line-height:1.7;color:var(--muted)}.record{width:360px;height:360px;border:2px solid var(--line);border-radius:50%;display:grid;place-items:center;margin:auto;position:relative}.record:before{content:"";width:260px;height:260px;background:var(--red);border-radius:50%}.record:after{content:"REC";color:var(--paper);position:absolute;font-size:35px;letter-spacing:6px}.coverline{height:2px;width:110px;background:var(--red);margin:40px 0}.wave{height:150px;display:flex;align-items:center;justify-content:center;gap:14px;margin-top:40px;color:var(--red)}.wave i{display:block;width:9px;border-radius:10px;background:currentColor}.wave i:nth-child(5n+1){height:27%}.wave i:nth-child(5n+2){height:63%}.wave i:nth-child(5n+3){height:96%}.wave i:nth-child(5n+4){height:42%}.wave i:nth-child(5n){height:78%}.list{display:grid;grid-template-columns:1fr 1fr;gap:26px 65px;margin-top:38px}.list div{font-size:40px;border-bottom:1px solid var(--line);padding:17px 0}.aside{border-left:1px solid var(--line);padding-left:65px}.strike{text-decoration:line-through;text-decoration-thickness:2px;color:var(--muted)}.numeral{font-size:270px;line-height:1;font-weight:500;letter-spacing:-15px;font-variant-numeric:tabular-nums}.unit{font-size:60px;letter-spacing:0;margin-left:20px}.steps{margin-top:45px;display:grid;grid-template-columns:repeat(3,1fr);gap:45px}.step{border-top:2px solid var(--line);padding-top:25px}.step .index{font-size:32px;color:var(--red);margin-bottom:22px}.step p{font-size:43px}.step .mini{font-size:32px;margin-top:20px}.rows{margin-top:35px}.row{display:flex;align-items:center;gap:40px;padding:27px 0;border-bottom:1px solid var(--line);font-size:43px}.row span{font-size:30px;color:var(--red);width:190px;flex:none}.timeline{display:grid;grid-template-columns:1fr 180px 1fr;align-items:center;margin-top:55px}.timeline .arrow{font-size:90px;text-align:center;color:var(--red)}.timeline .age{font-size:150px;line-height:1.25}.age small{font-size:55px}.timeline p{font-size:34px;color:var(--muted)}.tape{border:1px solid var(--line);padding:55px 50px;position:relative}.tape .wave{margin:20px 0 40px}.tape-label{display:flex;align-items:center;gap:20px;font-size:30px;color:var(--muted)}.ribbon{display:inline-block;border:1px solid var(--line);padding:14px 23px;font-size:28px;color:var(--muted);margin-bottom:32px}.big-one{font-size:440px;line-height:.95;color:var(--red);font-weight:400;text-align:center;letter-spacing:-25px}.pills{display:flex;gap:22px;margin-top:45px}.pills span{font-size:33px;padding:14px 25px;border:1px solid var(--line)}.phrase{font-size:54px;line-height:1.85}.end-title{font-size:166px;letter-spacing:-6px}.nav{height:70px;position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:center;align-items:center;gap:10px;padding:8px 14px;color:#e9eee7;background:#131b1a}.nav button{background:transparent;color:inherit;border:1px solid #596660;border-radius:5px;min-width:46px;min-height:44px;padding:0 15px;font-size:15px}.nav button:hover{background:#2c3934}.counter{min-width:88px;text-align:center;font-size:15px;font-variant-numeric:tabular-nums}.progress{height:3px;position:absolute;top:0;left:0;background:#e98065;transition:width .15s ease}.nav .help{margin-left:12px;color:#c9d1c8}.sr-only{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}dialog{width:min(1050px,94vw);max-height:85svh;color:var(--ink);background:var(--paper);border:0;border-radius:10px;padding:30px;box-shadow:0 20px 100px #0008}dialog::backdrop{background:#000a}.dialog-head{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:22px}.dialog-head h2{font-size:25px;letter-spacing:0}.dialog-head button{min-width:44px;min-height:44px;border:1px solid #929e93;border-radius:5px;background:transparent;color:var(--ink)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.tile{padding:19px;text-align:left;min-height:115px;background:transparent;border:1px solid #b0b8ac;border-radius:5px;font-size:18px;line-height:1.5;color:var(--ink)}.tile small{display:block;font-size:13px;color:var(--muted);margin-bottom:8px}.tile[aria-current=true]{border:2px solid var(--red);background:#eaded1}.help-copy p{font-size:18px;margin:10px 0}.help-copy kbd{font:14px monospace;border:1px solid #a4ac9f;padding:3px 7px;border-radius:3px}.toast{position:fixed;bottom:84px;left:50%;transform:translateX(-50%);background:#131b1a;color:#fff;padding:12px 20px;border-radius:6px;font-size:16px;z-index:4}.toast:empty{display:none}
+@media(max-width:600px){.nav{gap:5px;padding:8px 6px}.nav button{padding:0 10px;font-size:13px}.counter{min-width:62px;font-size:13px}.nav .help{margin-left:0}.print-button{display:none}.grid{grid-template-columns:1fr 1fr}.tile{font-size:16px;padding:13px}.dialog-head h2{font-size:21px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+@page{size:1920px 1080px;margin:0}
+@media print{html,body{background:white;overflow:visible;width:1920px;height:auto;min-height:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}.viewport{position:static;overflow:visible}.deck{position:static;width:1920px;height:auto;transform:none!important}.slide{display:block!important;position:relative;width:1920px;height:1080px;break-after:page;page-break-after:always}.slide:last-child{break-after:auto;page-break-after:auto}.nav,dialog,.toast,.sr-only{display:none!important}}
+
+
+.content{height:780px}h2{font-size:94px;line-height:1.35;letter-spacing:-2px}.sub{font-size:38px;line-height:1.6;margin-top:30px}.build{visibility:hidden;opacity:0;transition:opacity .18s ease}.build.revealed{visibility:visible;opacity:1}.punch{margin-top:35px;font-size:61px;line-height:1.5}.tag{font-size:34px;border-top:1px solid var(--line);padding-top:22px}.notice{margin-top:22px;padding:30px 42px;border:1px solid var(--line)}.notice p{font-size:47px;line-height:1.6}.notice .eyebrow{font-size:28px;margin-bottom:20px}.choices{display:grid;grid-template-columns:1fr 1fr;gap:22px 65px;margin-top:40px}.choices div{border-bottom:1px solid var(--line);padding:20px 0;font-size:48px}.choices span{color:var(--red);margin-right:25px}.duo{display:grid;grid-template-columns:1fr 1fr;gap:65px;margin-top:80px}.duo>div{border-top:2px solid var(--line);padding-top:30px}.duo h3{font-size:47px}.mic-grid{display:grid;grid-template-columns:.65fr 1.35fr;gap:60px;align-items:center}.huge{font-size:174px;white-space:nowrap}.dialogue{min-height:430px;display:flex;flex-direction:column;justify-content:center;gap:30px}.dialogue p{font-size:46px}.dialogue h3{font-size:54px}.muted{color:var(--muted)}.father{grid-template-columns:1.25fr 1fr;gap:65px}.father h2{font-size:79px}.father .quote{font-size:76px}.consent{margin-top:38px}.conversation h3{font-size:68px}.message-stack{margin:20px 0}.message-stack p{border-left:2px solid var(--line);padding-left:34px;margin-bottom:22px}.message-stack h3{margin:28px 0;font-size:72px}.practice{grid-template-columns:.9fr 1.3fr;gap:70px}.practice .aside{padding-left:55px}.practice h3{font-size:58px}.prompt-line{margin-top:30px}.timer-display{font-size:174px;letter-spacing:-5px;font-variant-numeric:tabular-nums;line-height:1.4}.save-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:70px;align-items:center;margin-top:45px}.files{border:1px solid var(--line);padding:28px 38px}.files p{font-size:43px;padding:14px 0;border-bottom:1px solid var(--line)}.files p:last-child{border:0}.save-grid h3{font-size:61px}.closing-line{font-size:53px;line-height:1.65;margin-top:60px}.final-title{font-size:118px;line-height:1.3}.viewport{bottom:76px}.nav{height:76px;gap:10px}.nav .step-counter{color:#bec6be;font-size:13px;min-width:50px;text-align:center;letter-spacing:3px}.nav button.primary{background:#e7e4d9;color:#202d2b;border-color:#e7e4d9}.timer-dock{display:none}.timer-page .viewport{bottom:132px}.timer-page .timer-dock{position:absolute;bottom:76px;left:0;right:0;height:56px;display:flex;justify-content:center;align-items:center;gap:12px;background:#131b1a}.timer-dock button{font:inherit;font-size:15px;min-height:44px;min-width:70px;border:1px solid #89958b;border-radius:5px;padding:0 18px;background:transparent;color:#f3efe6}.timer-dock button:first-child{background:#f3efe6;color:#202d2b}.help-copy button{font:inherit;padding:10px 15px;min-height:44px}.foot{font-size:23px}.slide{opacity:1}.large{font-size:118px}.dialog-head h2{font-size:26px;letter-spacing:0}
+@media(max-width:700px){.nav{padding:8px 6px;gap:5px}.nav button{padding:0 10px;min-width:44px;font-size:13px}.counter{min-width:57px;font-size:13px}.step-counter{display:none}.nav .help{margin-left:0}.print-button{display:none}.grid{grid-template-columns:1fr 1fr}.help-copy p{font-size:16px}.dialog-head h2{font-size:22px}}
+@media print{.build{visibility:visible!important;opacity:1!important}.timer-dock{display:none!important}.timer-page .viewport{position:static}.slide{break-inside:avoid}.content{height:780px}}
+</style></head><body>
+<main class="viewport" aria-label="Podcast 專題簡報"><div class="deck" id="deck">
+<section class="slide" data-chapter="TOASTMASTERS" data-title="給每一個，還沒有開始的你" >
+<div class="top"><span>TOASTMASTERS / 給每一個，還沒有開始的你</span><span class="brand"><i class="rec-dot"></i> 留下你的聲音</span></div>
+<div class="content split"><div><p class="eyebrow">一個故事，一個聲音。</p><h1>不一定要上架，<br>也能開始<br><em>Podcast</em></h1><div class="coverline"></div><p class="mini">Gimmy</p></div><div><div class="record" aria-hidden="true"></div><p class="center sub">用你平常的聲音。</p></div></div><div class="foot"><span>不一定要上架，也能開始 Podcast</span><span class="page-number">01</span></div></section>
+<section class="slide dark" data-chapter="開場" data-title="先問你一個問題" >
+<div class="top"><span>開場 / 先問你一個問題</span><span class="brand"><i class="rec-dot"></i> 留下你的聲音</span></div>
+<div class="content "><p class="eyebrow">有的話，可以舉一下手。</p><h2>有沒有想過，<br>做自己的 <em>Podcast？</em></h2><div class="build " data-step="1"><p class="sub">那，想過，到現在還沒開始的呢？</p></div></div><div class="foot"><span>不一定要上架，也能開始 Podcast</span><span class="page-number">02</span></div></section>
+<section class="slide" data-chapter="開場" data-title="開始之前的準備" >
+<div class="top"><span>開場 / 開始之前的準備</span><span class="brand"><i class="rec-dot"></i> 留下你的聲音</span></div>
+<div class="content "><p class="eyebrow">麥克風 → 耳機 → 支架 → 桌子</p><h2>本來只想<br>講幾句話。</h2><div class="build " data-step="1"><h2><em>最後要重新裝潢。</em></h2></div><div class="build " data-step="2"><p class="sub">聽眾還不知道，賣家已經在等你了。</p></div></div><div class="foot"><span>不一定要上架，也能開始 Podcast</span><span class="page-number">03</span></div></section>
+<section class="slide" data-chapter="開場" data-title="你卡在哪一步？" >
+<div class="top"><span>開場 / 你卡在哪一步？</span><span class="brand"><i class="rec-dot"></i> 留下你的聲音</span></div>
+<div class="content "><p class="eyebrow">用 1～4 根手指選，也可以只在心裡想。</p><h2>你卡在哪一步？</h2><div class="choices"><div><span>1</span>沒有設備</div><div><span>2</span>不知道講什麼</div><div><span>3</span>怕聲音不好聽</div><div><span>4</span>不知道怎麼上架</div></div><p class="sub">今天先留下一段聲音。先不要結帳。</p></div><div class="foot"><span>不一定要上架，也能開始 Podcast</span><span class="page-number">04</span></div></section>
+<section class="slide dark" data-chapter="01" data-title="第一集還沒錄" >
+<div class="top"><span>01 / 第一集還沒錄</span><span class="brand"><i class="rec-dot"></i> 留下你的聲音</span></div>
+<div class="content "><p class="eyebrow">「如果做不下去，怎麼對得起支持我的人？」</p><div class="notice"><p>親愛的聽眾，因個人生涯規劃，<br>本節目即日起暫停更新。<br>謝謝一路以來的陪伴。</p></div><div class="build " data-step="1"><h3 class="punch">一路？哪一路？<br><em>麥克風都還在運送中。</em></h3></div></div><div class="foot"><span>不一定要上架，也能開始 Podcast</span><span class="page-number">05</span></div></section>
+<section class="slide" data-chapter="01" data-title="先把「開始」縮小一點" >
+<div class="top"><span>01 / 先把「開始」縮小一點</span><span class="brand"><i class="rec-dot"></i> 留下你的聲音</span></div>
+<div class="content "><p class="eyebrow">一個人，一件事，一段聲音。</p><h2>先講一句話，<br>把它<em>存起來。</em></h2><p class="sub">聲音日記、有聲的信，也可以是起點。<br>要不要公開上架，以後再決定。</p></div><div class="foot"><span>不一定要上架，也能開始 Podcast</span><span class="page-number">06</span></div></section>
+<section class="slide dark" data-chapter="02" data-title="想像一位爸爸，叫阿明" >
+<div class="top"><span>02 / 想像一位爸爸，叫阿明</span><span class="brand"><i class="rec-dot"></i> 留下你的聲音</span></div>
+<div class="content split father"><div><p class="eyebrow">孩子五歲的那一天</p><h2>孩子跌倒了。<br>爸爸說：<br><em>「沒事，爸爸在。」</em></h2></div><div class="aside"><p class="eyebrow">那天晚上，他拿起手機。</p><blockquote class="serif quote">「其實，<br>我也嚇到了。」</blockquote></div></div><div class="foot"><span>不一定要上架，也能開始 Podcast</span><span class="page-number">07</span></div></section>
+<section class="slide" data-chapter="02" data-title="阿明的第一段錄音" >
+<div class="top"><span>02 / 阿明的第一段錄音</span><span class="brand"><i class="rec-dot"></i> 留下你的聲音</span></div>
+<div class="content "><p class="eyebrow">「各位聽眾大家好，歡迎收聽……」</p><h2>哪來的各位？</h2><div class="build " data-step="1"><h2><em>就那一位。</em></h2><p class="sub">而且剛剛才被他叫去刷牙。</p></div><div class="build " data-step="2"><p class="sub tag">別人的聽眾付錢。這一位，還要幫他付學費。</p></div></div><div class="foot"><span>不一定要上架，也能開始 Podcast</span><span class="page-number">08</span></div></section>
+<section class="slide dark" data-chapter="02" data-title="給以後的你" >
+<div class="top"><span>02 / 給以後的你</span><span class="brand"><i class="rec-dot"></i> 留下你的聲音</span></div>
+<div class="content "><p class="eyebrow">「今天你五歲。下午在公園，你跌倒了。」</p><blockquote class="serif quote">「我一直跟你說沒事。<br>可是你不知道，<br><em>爸爸其實也嚇到了。</em>」</blockquote><p class="sub">「我還在學，怎麼當你的爸爸。」</p></div><div class="foot"><span>不一定要上架，也能開始 Podcast</span><span class="page-number">09</span></div></section>
+<section class="slide" data-chapter="03" data-title="照片以外，你留下了什麼？" >
+<div class="top"><span>03 / 照片以外，你留下了什麼？</span><span class="brand"><i class="rec-dot"></i> 留下你的聲音</span></div>
+<div class="content "><p class="eyebrow">我們很願意保存，一個人很小的差別。</p><h2>照片有很多。<br><em>他的聲音呢？</em></h2><p class="sub">爸爸、媽媽，或某個對你很重要的人。</p></div><div class="foot"><span>不一定要上架，也能開始 Podcast</span><span class="page-number">10</span></div></section>
+<section class="slide" data-chapter="03" data-title="同一句話，兩種聲音" >
+<div class="top"><span>03 / 同一句話，兩種聲音</span><span class="brand"><i class="rec-dot"></i> 留下你的聲音</span></div>
+<div class="content "><h2>「你真的很厲害。」</h2><div class="duo"><div><p class="eyebrow">自己穿好鞋子</p><h3>「哇，你真的很厲害！」</h3></div><div><p class="eyebrow">把鞋子丟進馬桶</p><h3>「你，真的，很厲害。」</h3></div></div><div class="build " data-step="1"><p class="punch"><em>這個，不能回答「謝謝爸爸」。</em></p></div></div><div class="foot"><span>不一定要上架，也能開始 Podcast</span><span class="page-number">11</span></div></section>
+<section class="slide" data-chapter="04" data-title="不知道講什麼？" >
+<div class="top"><span>04 / 不知道講什麼？</span><span class="brand"><i class="rec-dot"></i> 留下你的聲音</span></div>
+<div class="content "><h2>先回答<em>三個問題。</em></h2><div class="steps"><div class="step"><div class="index">01</div><h3>今天<br>發生什麼？</h3></div><div class="step"><div class="index">02</div><h3>我有什麼<br>感覺？</h3></div><div class="step"><div class="index">03</div><h3>我想把什麼<br>留下來？</h3></div></div><p class="sub">不必每次都整理出「五大啟示」。</p></div><div class="foot"><span>不一定要上架，也能開始 Podcast</span><span class="page-number">12</span></div></section>
+<section class="slide" data-chapter="04" data-title="例如：第一次上台" >
+<div class="top"><span>04 / 例如：第一次上台</span><span class="brand"><i class="rec-dot"></i> 留下你的聲音</span></div>
+<div class="content "><p class="eyebrow">「我很緊張，但還是把它講完了。」</p><h2>「你剛剛很勇敢。」</h2><div class="build " data-step="1"><p class="sub">我很高興。</p><h3 class="punch"><em>不過，他完全沒提到內容。</em></h3></div></div><div class="foot"><span>不一定要上架，也能開始 Podcast</span><span class="page-number">13</span></div></section>
+<section class="slide dark" data-chapter="05" data-title="第一次聽自己的錄音" >
+<div class="top"><span>05 / 第一次聽自己的錄音</span><span class="brand"><i class="rec-dot"></i> 留下你的聲音</span></div>
+<div class="content "><p class="eyebrow">「這誰？這是我？」</p><h2>以為自己的聲音<br>很有磁性。</h2><div class="build " data-step="1"><h2><em>原來，是親友很有耐性。</em></h2></div><div class="build " data-step="2"><p class="sub">不習慣，不代表不好聽。家人本來就認得這個你。</p></div></div><div class="foot"><span>不一定要上架，也能開始 Podcast</span><span class="page-number">14</span></div></section>
+<section class="slide" data-chapter="05" data-title="不用把自己剪到完美" >
+<div class="top"><span>05 / 不用把自己剪到完美</span><span class="brand"><i class="rec-dot"></i> 留下你的聲音</span></div>
+<div class="content "><p class="eyebrow">嗯，刪掉。呃，刪掉。停頓，刪掉。呼吸……</p><h2>剪著剪著，<br>好像少了什麼。</h2><div class="build " data-step="1"><h2><em>少了一個活人。</em></h2></div><div class="build " data-step="2"><p class="sub">先確認聽得清楚、說得出來，就可以存好。</p></div></div><div class="foot"><span>不一定要上架，也能開始 Podcast</span><span class="page-number">15</span></div></section>
+<section class="slide dark" data-chapter="06" data-title="好麥克風，不會自動幫你想內容" >
+<div class="top"><span>06 / 好麥克風，不會自動幫你想內容</span><span class="brand"><i class="rec-dot"></i> 留下你的聲音</span></div>
+<div class="content "><p class="eyebrow">換了一支很好的麥克風以後……</p><div class="mic-grid"><div><h2 class="huge">嗯……</h2><p class="sub">呃……</p></div><div class="dialogue"><div class="build " data-step="1"><p>「你聽，這個嗯很有層次。」</p></div><div class="build " data-step="2"><p class="muted">家人：「多少錢？」</p></div><div class="build " data-step="3"><h3><em>「我們現在是在討論音質。」</em></h3></div></div></div></div><div class="foot"><span>不一定要上架，也能開始 Podcast</span><span class="page-number">16</span></div></section>
+<section class="slide" data-chapter="06" data-title="先用手機，試錄十秒" >
+<div class="top"><span>06 / 先用手機，試錄十秒</span><span class="brand"><i class="rec-dot"></i> 留下你的聲音</span></div>
+<div class="content "><p class="eyebrow">找個相對安靜的地方，放穩手機，錄完聽一次。</p><h3>「孩子，爸爸有些話想告訴你……」</h3><div class="build " data-step="1"><div class="notice"><p class="eyebrow">旁邊的八點檔</p><h3>「我跟你已經沒有什麼好說的！」</h3></div></div><div class="build " data-step="2"><p class="sub"><em>家人的心情，先不要讓編劇幫忙補充。</em></p></div></div><div class="foot"><span>不一定要上架，也能開始 Podcast</span><span class="page-number">17</span></div></section>
+<section class="slide" data-chapter="07" data-title="錄音中，一位小來賓進場" >
+<div class="top"><span>07 / 錄音中，一位小來賓進場</span><span class="brand"><i class="rec-dot"></i> 留下你的聲音</span></div>
+<div class="content "><div class="conversation"><p class="eyebrow">孩子：「爸，你在跟誰講話？」</p><h2>「跟十八歲的你。」</h2><div class="build " data-step="1"><h3 class="punch"><em>「那你問他，我的恐龍放在哪裡。」</em></h3></div><div class="build " data-step="2"><p class="sub">「喔。那現在可以幫我倒水嗎？」</p></div></div></div><div class="foot"><span>不一定要上架，也能開始 Podcast</span><span class="page-number">18</span></div></section>
+<section class="slide dark" data-chapter="07" data-title="請保留一個會倒水的爸爸" >
+<div class="top"><span>07 / 請保留一個會倒水的爸爸</span><span class="brand"><i class="rec-dot"></i> 留下你的聲音</span></div>
+<div class="content "><p class="eyebrow">椅子動了一下。他起身去幫孩子倒水。</p><blockquote class="serif large">「好，<em>爸爸來了。</em>」</blockquote><p class="sub">停頓、笑聲、小插曲，都可以留下來。</p><p class="mini consent">錄到別人的聲音先問；分享給誰，也要取得同意。</p></div><div class="foot"><span>不一定要上架，也能開始 Podcast</span><span class="page-number">19</span></div></section>
+<section class="slide" data-chapter="08" data-title="這位聽眾，十三年後才準備好" >
+<div class="top"><span>08 / 這位聽眾，十三年後才準備好</span><span class="brand"><i class="rec-dot"></i> 留下你的聲音</span></div>
+<div class="content "><p class="eyebrow">給十八歲的你：五歲那天的公園</p><div class="timeline"><div><div class="age">5<small> 歲</small></div><p>爸爸按下錄音</p></div><div class="arrow" aria-hidden="true">→</div><div><div class="age">18<small> 歲</small></div><p>孩子戴上耳機</p></div></div><p class="sub">不用上架。也不用現在就聽懂。</p></div><div class="foot"><span>不一定要上架，也能開始 Podcast</span><span class="page-number">20</span></div></section>
+<section class="slide dark" data-chapter="08" data-title="他第一次，聽懂這一句" >
+<div class="top"><span>08 / 他第一次，聽懂這一句</span><span class="brand"><i class="rec-dot"></i> 留下你的聲音</span></div>
+<div class="content "><p class="eyebrow">耳機裡，是十三年前的爸爸。</p><blockquote class="serif quote">「我還在學，<br><em>怎麼當你的爸爸。</em>」</blockquote><p class="sub">原來，那個看起來什麼都知道的人，也會不確定。</p></div><div class="foot"><span>不一定要上架，也能開始 Podcast</span><span class="page-number">21</span></div></section>
+<section class="slide" data-chapter="09" data-title="只有一個聽眾，也很值得" >
+<div class="top"><span>09 / 只有一個聽眾，也很值得</span><span class="brand"><i class="rec-dot"></i> 留下你的聲音</span></div>
+<div class="content split"><div><p class="eyebrow">阿明本來想說話的對象，就是他。</p><h2>重要的，<br>是<em>誰聽見了。</em></h2><p class="sub">朋友、伴侶，或未來的自己。</p></div><div class="big-one">1</div></div><div class="foot"><span>不一定要上架，也能開始 Podcast</span><span class="page-number">22</span></div></section>
+<section class="slide" data-chapter="09" data-title="有空，聽聽看" >
+<div class="top"><span>09 / 有空，聽聽看</span><span class="brand"><i class="rec-dot"></i> 留下你的聲音</span></div>
+<div class="content "><p class="eyebrow">爸爸：「不急，你有空再聽。」</p><div class="message-stack"><div class="build " data-step="1"><p>「其實第三分鐘很重要。」</p><p>「戴耳機比較有感覺。」</p></div><div class="build " data-step="2"><h3><em>「聽後心得，五百字。」</em></h3></div></div><div class="build " data-step="3"><p class="sub">本來是一份禮物，打開以後發現是作業。</p></div></div><div class="foot"><span>不一定要上架，也能開始 Podcast</span><span class="page-number">23</span></div></section>
+<section class="slide dark" data-chapter="10" data-title="現在，先想一句開頭" data-timer="true">
+<div class="top"><span>10 / 現在，先想一句開頭</span><span class="brand"><i class="rec-dot"></i> 留下你的聲音</span></div>
+<div class="content split practice"><div><p class="eyebrow">留給自己，不必分享。</p><div id="timer-display" class="timer-display" role="timer" aria-label="剩餘思考時間">00:30</div><p class="sub" id="timer-status" aria-live="polite">準備好，再開始。</p></div><div class="aside"><h3>「我想錄給＿＿聽。」</h3><h3 class="prompt-line">「我想告訴你，<br>今天＿＿。」</h3><p class="mini consent">想不到對象，就填未來的自己。<br>只是構思，不會錄音。</p></div></div><div class="foot"><span>不一定要上架，也能開始 Podcast</span><span class="page-number">24</span></div></section>
+<section class="slide" data-chapter="10" data-title="今晚，給自己三分鐘" >
+<div class="top"><span>10 / 今晚，給自己三分鐘</span><span class="brand"><i class="rec-dot"></i> 留下你的聲音</span></div>
+<div class="content "><p class="eyebrow">錄一小段 → 停止 → 寫下日期與題目 → 存檔、備份</p><div class="save-grid"><div class="files"><p>最後版</p><p>真的最後版</p><p>這次真的不要再改</p></div><div><div class="build " data-step="1"><h3>還沒聽見爸爸的愛，<br><em>先看見爸爸的猶豫。</em></h3></div></div></div><p class="sub">取一個找得到的名字。存好了，今天就算完成。</p></div><div class="foot"><span>不一定要上架，也能開始 Podcast</span><span class="page-number">25</span></div></section>
+<section class="slide" data-chapter="11" data-title="先有一段，再慢慢變好" >
+<div class="top"><span>11 / 先有一段，再慢慢變好</span><span class="brand"><i class="rec-dot"></i> 留下你的聲音</span></div>
+<div class="content "><p class="eyebrow">「好，這樣可以嗎？」</p><h2>可以。<br>先留下<em>第一段。</em></h2><p class="sub">下次再多會一點。你不欠大家第二集。</p></div><div class="foot"><span>不一定要上架，也能開始 Podcast</span><span class="page-number">26</span></div></section>
+<section class="slide" data-chapter="11" data-title="從開箱，到開口" >
+<div class="top"><span>11 / 從開箱，到開口</span><span class="brand"><i class="rec-dot"></i> 留下你的聲音</span></div>
+<div class="content "><p class="eyebrow">錄三十秒，比看三十支麥克風開箱，更接近開始。</p><h2>那三十支開箱，<br>也不是完全沒用。</h2><div class="build " data-step="1"><h3 class="punch"><em>下次，就可以開一集講這個。</em></h3></div></div><div class="foot"><span>不一定要上架，也能開始 Podcast</span><span class="page-number">27</span></div></section>
+<section class="slide dark" data-chapter="12" data-title="很多年後，父子一起重聽" >
+<div class="top"><span>12 / 很多年後，父子一起重聽</span><span class="brand"><i class="rec-dot"></i> 留下你的聲音</span></div>
+<div class="content "><p class="eyebrow">阿明：「我那時候怎麼講成這樣？」</p><blockquote class="serif quote">「先不要關，<br><em>我想再聽一下。</em>」</blockquote></div><div class="foot"><span>不一定要上架，也能開始 Podcast</span><span class="page-number">28</span></div></section>
+<section class="slide dark" data-chapter="12" data-title="那個普通的晚上" >
+<div class="top"><span>12 / 那個普通的晚上</span><span class="brand"><i class="rec-dot"></i> 留下你的聲音</span></div>
+<div class="content center"><blockquote class="serif large">「好，<em>爸爸來了。</em>」</blockquote><p class="sub">椅子動了一下。</p><div class="build " data-step="1"><p class="closing-line">當年想剪掉的，<br>後來，正好是他想再聽一次的。</p></div></div><div class="foot"><span>不一定要上架，也能開始 Podcast</span><span class="page-number">29</span></div></section>
+<section class="slide" data-chapter="結語" data-title="想一個很重要的人" >
+<div class="top"><span>結語 / 想一個很重要的人</span><span class="brand"><i class="rec-dot"></i> 留下你的聲音</span></div>
+<div class="content "><p class="eyebrow">用你平常叫他的那個聲音。</p><h2>有沒有一句話，<br>你希望以後的他，<br><em>還能聽見你親口說？</em></h2></div><div class="foot"><span>不一定要上架，也能開始 Podcast</span><span class="page-number">30</span></div></section>
+<section class="slide dark" data-chapter="結語" data-title="不一定要上架，也能開始 Podcast" >
+<div class="top"><span>結語 / 不一定要上架，也能開始 Podcast</span><span class="brand"><i class="rec-dot"></i> 留下你的聲音</span></div>
+<div class="content split"><div><p class="eyebrow">「今天，我想到一件事，想講給你聽。」</p><h2 class="final-title">今晚，<br>先把那一句<br><em>留下來。</em></h2><p class="sub">謝謝大家。 / Gimmy</p></div><div class="record" aria-hidden="true"></div></div><div class="foot"><span>不一定要上架，也能開始 Podcast</span><span class="page-number">31</span></div></section>
+</div></main>
+<nav class="nav" aria-label="簡報操作"><div class="progress" id="progress"></div><button id="prev" aria-label="上一步" title="上一步 ←">←</button><span class="counter" id="counter"></span><span class="step-counter" id="step-counter" aria-label="本頁揭曉進度"></span><button id="next" class="primary" aria-label="下一步" title="下一步：揭曉或換頁 →">→</button><button id="overview">總覽</button><button id="fullscreen">全螢幕</button><button id="print" class="print-button">列印</button><button id="help" class="help" aria-label="操作說明">?</button></nav>
+<div class="timer-dock" aria-label="思考倒數操作"><button id="timer-toggle">開始 30 秒</button><button id="timer-reset">重設</button></div>
+<dialog id="overview-dialog" aria-labelledby="overview-title"><div class="dialog-head"><h2 id="overview-title">選擇頁面</h2><button data-close aria-label="關閉總覽">✕</button></div><div class="grid" id="slide-grid"></div></dialog>
+<dialog id="help-dialog" aria-labelledby="help-title"><div class="dialog-head"><h2 id="help-title">簡報操作</h2><button data-close aria-label="關閉操作說明">✕</button></div><div class="help-copy"><p><kbd>→</kbd> / <kbd>Space</kbd> / <kbd>Page Down</kbd>：先揭曉本頁內容，再換下一頁。</p><p><kbd>←</kbd> / <kbd>Page Up</kbd>：退回上一個步驟。手機也可以左右滑動。</p><p><kbd>Home</kbd> 回封面 · <kbd>End</kbd> 到結尾 · <kbd>O</kbd> 總覽。</p><p><kbd>F</kbd> 全螢幕 · <kbd>Esc</kbd> 關閉視窗／離開全螢幕。</p><p>本頁進度的小圓點在下方操作列。切換頁面不會自動播放、發聲或揭曉內容。</p><p>30 秒倒數需手動開始，離開練習頁或開啟總覽會自動暫停。</p><p>單一 HTML 檔，無需網路。不存取麥克風、不錄音、不上傳資料。手機橫向觀看較清楚。</p><p>列印會顯示全部內容；另存 PDF 時請開啟背景圖形、關閉頁首頁尾。</p><p><button id="restart">重新從封面開始</button></p></div></dialog>
+<div class="toast" id="toast" role="status"></div><div class="sr-only" id="announcement" aria-live="polite"></div>
+<script>
+'use strict';
+const slides=[...document.querySelectorAll('.slide')];
+const deck=document.querySelector('#deck'),viewport=document.querySelector('.viewport');
+const overview=document.querySelector('#overview-dialog'),help=document.querySelector('#help-dialog');
+const storageKey='gimmy-podcast-humor-v2-reveal-deck';
+let current=0,step=0,touch=null,toastTimeout;
+let remaining=30000,deadline=0,timerId=null;
+const maxSteps=s=>Math.max(0,...[...s.querySelectorAll('[data-step]')].map(x=>Number(x.dataset.step)));
+slides.forEach((s,i)=>{
+ s.id='slide-'+(i+1);s.setAttribute('role','group');s.setAttribute('aria-label',`${i+1} / ${slides.length}：${s.dataset.title}`);
+ s.querySelector('.page-number').textContent=String(i+1).padStart(2,'0')+' / '+slides.length;
+ const b=document.createElement('button');b.className='tile';b.dataset.index=i;
+ const small=document.createElement('small');small.textContent=String(i+1).padStart(2,'0')+' · '+s.dataset.chapter;
+ b.append(small,document.createTextNode(s.dataset.title));b.onclick=()=>{overview.close();show(i,0);};document.querySelector('#slide-grid').append(b);
+});
+function resize(){const scale=Math.min(viewport.clientWidth/1920,viewport.clientHeight/1080);deck.style.transform=`translate(-50%,-50%) scale(${scale})`;}
+function show(index,newStep=0){
+ const target=Math.max(0,Math.min(slides.length-1,index));if(target!==current)pauseTimer();current=target;
+ step=Math.max(0,Math.min(maxSteps(slides[current]),newStep));
+ slides.forEach((s,i)=>{s.classList.toggle('active',i===current);s.setAttribute('aria-hidden',String(i!==current));s.inert=i!==current;s.querySelectorAll('[data-step]').forEach(x=>{const visible=i===current&&Number(x.dataset.step)<=step;x.classList.toggle('revealed',visible);x.setAttribute('aria-hidden',String(!visible));});});
+ document.body.classList.toggle('timer-page',Boolean(slides[current].dataset.timer));
+ document.querySelector('#counter').textContent=String(current+1).padStart(2,'0')+' / '+slides.length;
+ document.querySelector('#prev').disabled=current===0&&step===0;
+ document.querySelector('#next').disabled=current===slides.length-1&&step===maxSteps(slides[current]);
+ const total=maxSteps(slides[current]);document.querySelector('#step-counter').textContent=Array.from({length:total},(_,i)=>i<step?'●':'○').join('');
+ document.querySelector('#step-counter').setAttribute('aria-label',`本頁揭曉 ${step} / ${total}`);
+ document.querySelector('#progress').style.width=((current+1)/slides.length*100)+'%';
+ document.querySelectorAll('.tile').forEach((b,i)=>b.setAttribute('aria-current',String(i===current)));
+ document.querySelector('#announcement').textContent=slides[current].getAttribute('aria-label')+(total?`，揭曉 ${step} / ${total}`:'');
+ try{localStorage.setItem(storageKey,JSON.stringify({current,step}));history.replaceState(null,'','#'+(current+1));}catch{}
+ resize();
+}
+function advance(){if(step<maxSteps(slides[current]))show(current,step+1);else show(current+1,0);}
+function retreat(){if(step>0)show(current,step-1);else if(current>0)show(current-1,maxSteps(slides[current-1]));}
+function message(text){clearTimeout(toastTimeout);document.querySelector('#toast').textContent=text;toastTimeout=setTimeout(()=>document.querySelector('#toast').textContent='',4000);}
+function openOverview(){pauseTimer();overview.showModal();overview.querySelector('[aria-current="true"]').focus();}
+async function full(){try{if(document.fullscreenElement)await document.exitFullscreen();else if(document.documentElement.requestFullscreen)await document.documentElement.requestFullscreen();else message('此瀏覽器不支援網頁全螢幕，請使用瀏覽器選單。');}catch{message('無法切換全螢幕，請使用瀏覽器選單。');}}
+document.querySelector('#next').onclick=advance;document.querySelector('#prev').onclick=retreat;
+document.querySelector('#overview').onclick=openOverview;document.querySelector('#help').onclick=()=>{pauseTimer();help.showModal();};
+document.querySelector('#fullscreen').onclick=full;document.querySelector('#print').onclick=()=>window.print();
+document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>b.closest('dialog').close());
+document.querySelector('#restart').onclick=()=>{help.close();resetTimer();show(0,0);};
+document.addEventListener('fullscreenchange',()=>{document.querySelector('#fullscreen').textContent=document.fullscreenElement?'離開全螢幕':'全螢幕';resize();});
+document.addEventListener('keydown',e=>{
+ if(e.altKey||e.ctrlKey||e.metaKey||e.target.matches('input,textarea,select,[contenteditable]')||overview.open||help.open)return;
+ if(['ArrowRight','ArrowDown','PageDown','ArrowLeft','ArrowUp','PageUp','Home','End'].includes(e.key)){
+  e.preventDefault();if(e.key==='Home')show(0,0);else if(e.key==='End')show(slides.length-1,maxSteps(slides.at(-1)));else if(['ArrowRight','ArrowDown','PageDown'].includes(e.key))advance();else retreat();
+ }else if(e.key===' '&&!e.target.closest('button')){e.preventDefault();advance();}
+ else if(e.key.toLowerCase()==='o'){e.preventDefault();openOverview();}
+ else if(e.key.toLowerCase()==='f'){e.preventDefault();full();}
+ else if(e.key==='Escape'&&document.fullscreenElement)document.exitFullscreen();
+});
+viewport.addEventListener('touchstart',e=>{if(e.touches.length===1)touch={x:e.touches[0].clientX,y:e.touches[0].clientY};},{passive:true});
+viewport.addEventListener('touchend',e=>{if(!touch)return;const dx=e.changedTouches[0].clientX-touch.x,dy=e.changedTouches[0].clientY-touch.y;if(Math.abs(dx)>55&&Math.abs(dx)>Math.abs(dy)*1.5){if(dx<0)advance();else retreat();}touch=null;},{passive:true});
+viewport.addEventListener('touchcancel',()=>touch=null,{passive:true});
+function drawTimer(){document.querySelector('#timer-display').textContent='00:'+String(Math.ceil(remaining/1000)).padStart(2,'0');document.querySelector('#timer-toggle').textContent=timerId!==null?'暫停':remaining===0?'再想 30 秒':remaining<30000?'繼續':'開始 30 秒';}
+function tick(){remaining=Math.max(0,deadline-performance.now());if(remaining===0){clearInterval(timerId);timerId=null;document.querySelector('#timer-status').textContent='先留著這一句，今晚回家再錄。';}drawTimer();}
+function pauseTimer(){if(timerId!==null){remaining=Math.max(0,deadline-performance.now());clearInterval(timerId);timerId=null;document.querySelector('#timer-status').textContent=remaining>0?'已暫停，準備好再繼續。':'先留著這一句，今晚回家再錄。';drawTimer();}}
+function resetTimer(){if(timerId!==null)clearInterval(timerId);timerId=null;remaining=30000;document.querySelector('#timer-status').textContent='準備好，再開始。';drawTimer();}
+function toggleTimer(){if(timerId!==null){pauseTimer();return;}if(remaining===0)remaining=30000;deadline=performance.now()+remaining;timerId=setInterval(tick,100);document.querySelector('#timer-status').textContent='先想一句就好，不必分享。';drawTimer();}
+document.querySelector('#timer-toggle').onclick=toggleTimer;document.querySelector('#timer-reset').onclick=resetTimer;
+document.addEventListener('visibilitychange',()=>{if(document.hidden)pauseTimer();});window.addEventListener('beforeprint',pauseTimer);
+window.addEventListener('resize',resize);
+window.addEventListener('hashchange',()=>{const n=Number(location.hash.slice(1));if(Number.isInteger(n)&&n>=1&&n<=slides.length)show(n-1,0);});
+let start=0,startStep=0;
+try{const hash=Number(location.hash.slice(1));const saved=JSON.parse(localStorage.getItem(storageKey)||'{}');
+ if(Number.isInteger(hash)&&hash>=1&&hash<=slides.length){start=hash-1;startStep=saved.current===start&&Number.isInteger(saved.step)?saved.step:0;}
+ else if(Number.isInteger(saved.current)&&saved.current>=0&&saved.current<slides.length){start=saved.current;startStep=Number.isInteger(saved.step)?saved.step:0;}
+}catch{}
+show(start,startStep);drawTimer();
+</script></body></html>
