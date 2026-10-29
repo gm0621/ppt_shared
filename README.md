@@ -3,6 +3,13 @@
 - [簡報首頁](https://gm0621.github.io/ppt_shared/)
 - [不一定要上架，也能開始 Podcast｜互動版](https://gm0621.github.io/ppt_shared/podcast-start/#1)
 
+## N‑Ticket ISO 導入引導平台提案
+
+- [開啟提案簡報](https://gm0621.github.io/ppt_shared/n-ticket-iso-platform/)
+- [下載離線 HTML](https://gm0621.github.io/ppt_shared/n-ticket-iso-platform/index.html)
+
+13 頁管理階層提案，涵蓋現有 N‑Ticket 能力、ISO 標準／場景範本／組織實例三層模型、onboarding、8～12 週 MVP、12～18 週正式上線條件、風險控制，以及先核准 2～3 週垂直切片的決策請求。
+
 ## Podcast 專題簡報｜笑點加強版
 
 - [開啟笑點加強版](https://gm0621.github.io/ppt_shared/podcast-start-humor/#1)
@@ -41,4 +48,4 @@
 
 ## 發布
 
-GitHub Pages：`main` branch、根目錄 `/`。首頁為 `index.html`，原互動版為 `podcast-start/index.html`，笑點加強版為 `podcast-start-humor/index.html`。無建置步驟或外部套件。
+GitHub Pages：`main` branch、根目錄 `/`。首頁為 `index.html`，N‑Ticket ISO 提案為 `n-ticket-iso-platform/index.html`，原互動版為 `podcast-start/index.html`，笑點加強版為 `podcast-start-humor/index.html`。無建置步驟或外部套件。

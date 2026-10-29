@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>N-Ticket ISO 導入引導平台提案</title>
+<style>
+:root{
+  --navy:#071628;--navy-2:#0b213c;--panel:#102a49;--panel-2:#153557;
+  --ink:#f5f8fb;--muted:#aebed0;--line:#2a4766;--blue:#57a8ff;
+  --cyan:#61d5d8;--amber:#f1bd5c;--green:#63d59a;--red:#ff8b8b;
+  --paper:#edf3f8;--paper-ink:#10243a;
+}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#030b14;color:var(--ink);font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif}
+button{font:inherit}
+.deck-viewport{position:absolute;inset:0 0 82px;overflow:hidden;background:#030b14}
+.deck{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:center}
+.slide{position:absolute;inset:0;display:none;overflow:hidden;background:var(--navy);padding:76px 96px 70px;opacity:0}
+.slide.active{display:block;opacity:1;animation:fade .22s ease-out}
+@keyframes fade{from{opacity:.15}to{opacity:1}}
+.slide::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(87,168,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(87,168,255,.035) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.7),transparent 85%)}
+.slide>*{position:relative;z-index:1}
+.eyebrow{display:flex;align-items:center;gap:14px;color:var(--blue);font-size:22px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.eyebrow::before{content:"";width:38px;height:4px;background:var(--blue)}
+h1{font-size:76px;line-height:1.1;letter-spacing:-.035em;margin:26px 0 20px;max-width:1550px;text-wrap:balance}
+h2{font-size:58px;line-height:1.15;letter-spacing:-.025em;margin:18px 0 32px;text-wrap:balance}
+h3{font-size:30px;line-height:1.3;margin:0 0 14px}
+p{font-size:27px;line-height:1.55;margin:0;color:var(--muted)}
+strong{color:var(--ink)}
+.lead{font-size:34px;line-height:1.55;max-width:1480px;color:#d7e2ee}
+.small{font-size:20px;color:var(--muted)}
+.kicker{font-size:25px;color:var(--cyan);font-weight:700}
+.accent{color:var(--blue)}.cyan{color:var(--cyan)}.amber{color:var(--amber)}.green{color:var(--green)}.red{color:var(--red)}
+.grid{display:grid;gap:24px}.cols-2{grid-template-columns:1fr 1fr}.cols-3{grid-template-columns:repeat(3,1fr)}.cols-4{grid-template-columns:repeat(4,1fr)}
+.card{background:rgba(16,42,73,.85);border:1px solid var(--line);padding:30px 32px;min-height:160px}
+.card.light{background:var(--paper);color:var(--paper-ink);border:none}.card.light p{color:#496179}
+.card .num{font-size:64px;line-height:1;font-weight:800;color:var(--blue);letter-spacing:-.05em;margin-bottom:14px}
+.card .label{font-size:22px;color:var(--muted);font-weight:700;letter-spacing:.05em}
+.card p{font-size:23px;line-height:1.45}
+.tag{display:inline-flex;align-items:center;padding:8px 14px;border:1px solid var(--line);color:#d8e5f1;font-size:19px;font-weight:700;background:rgba(8,24,43,.65)}
+.tag.new{border-color:#276e9c;color:#87d0ff;background:#0e3451}.tag.keep{border-color:#387a65;color:#8ce2bb;background:#12392f}
+.slide-no{position:absolute;right:92px;bottom:42px;color:#7590aa;font-size:19px;letter-spacing:.08em}
+.footer-note{position:absolute;left:96px;bottom:38px;color:#7890a8;font-size:18px}
+.hero{display:grid;grid-template-columns:1.3fr .7fr;gap:70px;align-items:center;height:100%}
+.hero .title-mark{border-left:8px solid var(--blue);padding-left:32px}
+.hero-panel{border-top:5px solid var(--blue);background:var(--paper);color:var(--paper-ink);padding:38px}
+.hero-panel .big{font-size:78px;font-weight:800;letter-spacing:-.06em;color:#0a4f88;line-height:1}
+.hero-panel p{color:#3d566e;margin-top:18px;font-size:25px}
+.question{font-size:42px;line-height:1.4;color:#dbe8f5;margin-top:42px;max-width:1420px}
+.answer-line{margin-top:38px;font-size:55px;font-weight:800;line-height:1.2;color:var(--green)}
+.split{display:grid;grid-template-columns:1fr 90px 1fr;gap:28px;align-items:stretch;margin-top:46px}
+.arrow{display:grid;place-items:center;color:var(--blue);font-size:60px}
+.list{display:grid;gap:14px;margin-top:18px}.list div{display:flex;gap:15px;font-size:24px;line-height:1.45;color:#d2deeb}.list div::before{content:"";flex:0 0 10px;height:10px;background:var(--blue);margin-top:13px}
+.framework{display:grid;grid-template-columns:1fr;gap:14px;margin-top:30px}
+.layer{display:grid;grid-template-columns:280px 1fr 190px;align-items:center;gap:24px;padding:22px 28px;border:1px solid var(--line);background:rgba(16,42,73,.78)}
+.layer .name{font-size:27px;font-weight:800}.layer .desc{font-size:22px;color:#c1d0df}.layer .state{text-align:center}
+.layer.new-layer{border:2px solid var(--blue);background:#103658}
+.journey{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:44px}
+.step{position:relative;min-height:250px;padding:28px 24px;background:rgba(16,42,73,.85);border-top:5px solid var(--line)}
+.step:nth-child(-n+3){border-color:var(--blue)}.step:nth-child(n+4){border-color:var(--cyan)}
+.step .n{font-size:18px;color:var(--blue);font-weight:800;letter-spacing:.08em}.step h3{font-size:27px;margin-top:16px}.step p{font-size:20px}
+.step:not(:last-child)::after{content:"";position:absolute;right:-18px;top:82px;width:18px;height:2px;background:var(--blue)}
+.ui-shell{margin-top:30px;background:#f5f8fb;color:#132940;border:10px solid #17314d;box-shadow:0 24px 80px rgba(0,0,0,.35);height:660px;display:grid;grid-template-columns:260px 1fr}
+.sidebar{background:#0c2239;color:#fff;padding:30px 24px}.brand{font-size:26px;font-weight:800;margin-bottom:42px}.navitem{padding:15px 16px;color:#9eb2c7;font-size:19px;margin:7px 0}.navitem.active{background:#173c61;color:#fff;border-left:4px solid var(--blue)}
+.ui-main{padding:34px 42px;overflow:hidden}.ui-head{display:flex;justify-content:space-between;align-items:center}.ui-title{font-size:35px;font-weight:800}.ui-sub{font-size:19px;color:#60778e;margin-top:7px}
+.btn{background:#0b69ac;color:#fff;padding:14px 24px;border:none;font-size:19px;font-weight:700}.btn.ghost{background:#e4ebf1;color:#29435d}
+.ui-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;margin-top:26px}.ui-card{border:1px solid #d2dee8;padding:22px;background:#fff}.ui-card h4{font-size:23px;margin:0 0 15px}.field{margin:13px 0}.field label{display:block;font-size:15px;color:#5f7286;margin-bottom:6px}.input{border:1px solid #b9c8d6;padding:11px 13px;font-size:17px;background:#fbfdff}.choice{display:flex;gap:10px;flex-wrap:wrap}.pill{border:1px solid #aac2d6;padding:9px 12px;font-size:15px}.pill.selected{background:#d9edff;border-color:#3486c4;color:#07538c}
+.progress-line{height:9px;background:#dfe8ef;margin:12px 0 8px}.progress-line i{display:block;height:100%;background:#1982c4;width:36%}.next{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-top:1px solid #e1e8ee}.next b{display:grid;place-items:center;width:27px;height:27px;background:#dcefff;color:#096199}.next span{font-size:17px;line-height:1.4}
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:70px;position:relative}.timeline::before{content:"";position:absolute;left:8%;right:8%;top:41px;height:4px;background:#294967}.phase{position:relative;text-align:center;padding:0 18px}.dot{width:34px;height:34px;margin:25px auto 28px;background:var(--navy);border:7px solid var(--blue);position:relative;z-index:2}.phase:nth-child(4) .dot{border-color:var(--cyan)}.phase .time{font-size:42px;font-weight:800;color:var(--blue)}.phase h3{font-size:26px;margin-top:10px}.phase p{font-size:20px}
+.scope-table{display:grid;grid-template-columns:1.1fr 1fr 1fr;margin-top:38px;border-top:1px solid var(--line);border-left:1px solid var(--line)}.cell{padding:20px 22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);font-size:21px;line-height:1.35}.head{background:#143657;font-weight:800;color:#fff}.yes{color:var(--green)}.later{color:var(--amber)}
+.risk-row{display:grid;grid-template-columns:260px 1fr 1fr;gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line)}.risk-row>div{padding:19px 22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);font-size:21px;line-height:1.4}.risk-row .risk{font-weight:800;background:#112d4b}.risk-row .control{color:#d7e4ef}.risk-row .gate{color:#8cdbff}
+.decision{display:grid;grid-template-columns:.9fr 1.1fr;gap:55px;margin-top:40px}.ask{background:var(--paper);color:var(--paper-ink);padding:44px}.ask .caption{font-size:19px;color:#55708b;font-weight:800;letter-spacing:.08em}.ask .big{font-size:68px;font-weight:850;line-height:1.05;margin:16px 0;color:#0a558e}.ask p{color:#3f5871}.decision-list{display:grid;gap:18px}.decision-item{display:grid;grid-template-columns:56px 1fr;gap:18px;align-items:start;padding:23px 0;border-bottom:1px solid var(--line)}.decision-item b{display:grid;place-items:center;width:48px;height:48px;border:2px solid var(--blue);color:var(--blue);font-size:21px}.decision-item h3{font-size:27px;margin:0 0 6px}.decision-item p{font-size:21px}
+.quote{font-size:50px;line-height:1.35;font-weight:750;max-width:1450px;margin-top:64px}.quote span{color:var(--blue)}
+.controls{position:fixed;left:0;right:0;bottom:0;height:82px;background:#07111d;border-top:1px solid #20384f;display:flex;align-items:center;justify-content:space-between;padding:0 24px;z-index:20}
+.controls .group{display:flex;gap:10px;align-items:center}.controls button{height:46px;min-width:46px;border:1px solid #35516a;background:#0d2134;color:#dbe7f2;padding:0 16px;cursor:pointer}.controls button:hover,.controls button:focus-visible{background:#173a5a;border-color:#57a8ff;outline:none}.counter{font-variant-numeric:tabular-nums;color:#9eb2c5;font-size:17px;min-width:90px;text-align:center}
+.progress{position:absolute;left:0;top:-3px;height:3px;background:var(--blue);transition:width .2s}
+.help{color:#7890a8;font-size:15px}
+.overview{position:fixed;inset:0;z-index:50;background:rgba(1,7,13,.94);display:none;padding:40px;overflow:auto}.overview.open{display:block}.overview-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:26px}.overview h2{font-size:38px;margin:0}.overview-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}.thumb{background:#0d2238;border:1px solid #294965;padding:18px;min-height:150px;color:#fff;text-align:left;cursor:pointer}.thumb:hover{border-color:var(--blue);background:#143352}.thumb b{display:block;color:var(--blue);font-size:14px;margin-bottom:14px}.thumb span{font-size:21px;line-height:1.35}
+.present-exit{display:none;position:fixed;right:20px;top:18px;z-index:40;background:#0c253e;border:1px solid #426480;color:#fff;padding:12px 18px}
+:fullscreen .present-exit{display:block}
+@media (prefers-reduced-motion:reduce){.slide.active{animation:none}.progress{transition:none}}
+@media print{
+ @page{size:16in 9in;margin:0}
+ html,body{overflow:visible;background:#fff}.deck-viewport{position:static;overflow:visible}.deck{position:static;width:auto;height:auto;transform:none!important}.slide,.slide.active{display:block!important;position:relative;width:16in;height:9in;page-break-after:always;opacity:1;animation:none}.controls,.present-exit,.overview{display:none!important}
+}
+</style>
+</head>
+<body>
+<div class="deck-viewport" id="viewport">
+<main class="deck" id="deck" aria-live="polite">
+
+<section class="slide active" data-title="封面" id="cover">
+  <div class="hero">
+    <div>
+      <div class="eyebrow">N-Ticket Product Proposal</div>
+      <div class="title-mark">
+        <h1>N‑Ticket<br><span class="accent">ISO 導入引導平台</span></h1>
+        <p class="lead">讓一間新公司從零開始，透過系統引導建立、執行並持續維護自己的 ISO 管理制度。</p>
+      </div>
+      <div style="display:flex;gap:12px;margin-top:44px"><span class="tag keep">重用現有 N‑Ticket</span><span class="tag new">新增 ISO 引導層</span></div>
+    </div>
+    <aside class="hero-panel">
+      <div class="small" style="color:#55708b;font-weight:800;letter-spacing:.08em">建議決策</div>
+      <div class="big">2–3 週</div>
+      <p>先核准垂直切片，以真實畫面與資料驗證產品方向，再進入 8–12 週 MVP。</p>
+    </aside>
+  </div>
+  <div class="footer-note">提案人：Gimmy｜N‑Partner</div><div class="slide-no">01</div>
+</section>
+
+<section class="slide" data-title="主管摘要" id="summary">
+  <div class="eyebrow">Executive Summary</div>
+  <h2>一句話結論：<span class="green">可行，而且不需要重做 N‑Ticket</span></h2>
+  <p class="lead">現有組織、工單、流程與 ISO 文件控制可直接沿用；需要新增的是一層「ISO 場景編排與組織實例化」。</p>
+  <div class="grid cols-3" style="margin-top:54px">
+    <div class="card"><div class="num">1</div><h3>產品機會</h3><p>從「保存 ISO 文件」升級為「引導企業建立並運作 ISO」。</p></div>
+    <div class="card"><div class="num">8–12</div><h3>可驗收 MVP</h3><p>一間空白公司可以完成基本資料、差距評估、任務與文件建置。</p></div>
+    <div class="card"><div class="num">12–18</div><h3>正式上線</h3><p>補足多組織隔離、異常處理、場景升版與部署驗證。</p></div>
+  </div>
+  <div class="question">本次不是請求核准完整 6–9 個月平台，而是先核准一個可快速驗證的產品切片。</div>
+  <div class="slide-no">02</div>
+</section>
+
+<section class="slide" data-title="為什麼現在值得做" id="opportunity">
+  <div class="eyebrow">Opportunity</div><h2>把 ISO 從「文件專案」變成<span class="accent">可持續運作的系統</span></h2>
+  <div class="split">
+    <div class="card">
+      <div class="tag">目前常見做法</div><h3 style="font-size:34px;margin-top:24px">顧問帶著公司完成一批文件</h3>
+      <div class="list"><div>新公司不知道先做什麼</div><div>文件、任務與證據各自分散</div><div>專案結束後制度容易失去持續性</div><div>每次導入高度依賴人工經驗</div></div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="card" style="border-color:#2e7fb5;background:#103658">
+      <div class="tag new">N‑Ticket 新定位</div><h3 style="font-size:34px;margin-top:24px">系統依公司狀況引導下一步</h3>
+      <div class="list"><div>結構化蒐集組織範圍與角色</div><div>差距自動轉成任務、文件與證據</div><div>每個階段都有 Gate 與完成條件</div><div>導入後仍持續管理週期與稽核</div></div>
+    </div>
+  </div>
+  <div class="answer-line">價值不只是「更快做文件」，而是讓 ISO 真正被執行。</div>
+  <div class="slide-no">03</div>
+</section>
+
+<section class="slide" data-title="產品架構" id="architecture">
+  <div class="eyebrow">Product Architecture</div><h2>保留既有核心，只新增一層<span class="accent"> ISO 引導與編排能力</span></h2>
+  <div class="framework">
+    <div class="layer"><div class="name">ISO 標準層</div><div class="desc">標準版本、條文、控制措施、必要文件與關聯</div><div class="state"><span class="tag new">新增</span></div></div>
+    <div class="layer"><div class="name">場景範本層</div><div class="desc">導入問卷、任務圖、文件範本、角色、流程、證據要求</div><div class="state"><span class="tag new">新增</span></div></div>
+    <div class="layer new-layer"><div class="name">組織 ISO 實例</div><div class="desc">將場景分配給公司，產生專屬專案、任務、文件、證據與進度</div><div class="state"><span class="tag new">核心新增</span></div></div>
+    <div class="layer"><div class="name">N‑Ticket 執行層</div><div class="desc">組織、分類、工單、流程中心、角色、通知與簽核</div><div class="state"><span class="tag keep">直接沿用</span></div></div>
+    <div class="layer"><div class="name">ISO 文件控制</div><div class="desc">一至四階文件、版本、執行紀錄、公告、封存與稽核軌跡</div><div class="state"><span class="tag keep">直接沿用</span></div></div>
+  </div>
+  <p class="small" style="margin-top:22px">設計原則：場景分配採 instantiate（建立組織實例），不是讓多家公司共同修改同一份母版。</p>
+  <div class="slide-no">04</div>
+</section>
+
+<section class="slide" data-title="新公司的引導旅程" id="journey">
+  <div class="eyebrow">Guided Journey</div><h2>新公司不需要先懂 ISO，只要回答<span class="accent">公司現在的真實狀況</span></h2>
+  <div class="journey">
+    <div class="step"><div class="n">STEP 01</div><h3>組織與範圍</h3><p>公司、據點、部門、產品服務與預計認證範圍。</p></div>
+    <div class="step"><div class="n">STEP 02</div><h3>角色與權責</h3><p>推動人、編修、審查、核准、稽核與風險負責人。</p></div>
+    <div class="step"><div class="n">STEP 03</div><h3>差距評估</h3><p>以白話問卷辨識已完成、部分完成與尚未完成。</p></div>
+    <div class="step"><div class="n">STEP 04</div><h3>建置計畫</h3><p>自動形成任務、文件、證據要求、優先順序與期限。</p></div>
+    <div class="step"><div class="n">STEP 05</div><h3>持續運作</h3><p>控制措施、教育訓練、內稽、管理審查與改善循環。</p></div>
+  </div>
+  <div class="quote">首頁只告訴使用者三件事：<span>現在在哪裡、卡住什麼、下一步做什麼。</span></div>
+  <div class="slide-no">05</div>
+</section>
+
+<section class="slide" data-title="預期畫面：分配場景" id="ui-assign">
+  <div class="eyebrow">Expected System UI</div><h2 style="margin-bottom:8px">管理者：從組織直接<span class="accent">分配 ISO 場景</span></h2>
+  <div class="ui-shell">
+    <aside class="sidebar"><div class="brand">N‑Ticket</div><div class="navitem">組織資料</div><div class="navitem active">ISO 方案</div><div class="navitem">成員與權限</div><div class="navitem">流程中心</div><div class="navitem">ISO 文件</div></aside>
+    <div class="ui-main">
+      <div class="ui-head"><div><div class="ui-title">N‑Partner｜分配 ISO 方案</div><div class="ui-sub">選擇標準與適用場景，建立組織專屬的導入專案</div></div><button class="btn">建立 ISO 專案</button></div>
+      <div class="ui-grid">
+        <div class="ui-card"><h4>1. 選擇標準與場景</h4><div class="field"><label>ISO 標準</label><div class="input">ISO/IEC 27001:2022</div></div><div class="field"><label>導入場景</label><div class="choice"><div class="pill selected">小型軟體／資訊服務公司</div><div class="pill">一般辦公室</div><div class="pill">雲端服務公司</div></div></div><div class="field"><label>場景版本</label><div class="input">v1.0｜N‑Partner Golden Scenario</div></div></div>
+        <div class="ui-card"><h4>預計建立</h4><div class="next"><b>8</b><span>導入階段與 Gate</span></div><div class="next"><b>30</b><span>第一版差距評估題目</span></div><div class="next"><b>—</b><span>依回答產生任務與必要文件</span></div><div class="next"><b>✓</b><span>沿用現有簽核與文件控制</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-no">06</div>
+</section>
+
+<section class="slide" data-title="預期畫面：組織首頁" id="ui-dashboard">
+  <div class="eyebrow">Expected System UI</div><h2 style="margin-bottom:8px">使用者：登入後立即知道<span class="accent">下一步該做什麼</span></h2>
+  <div class="ui-shell">
+    <aside class="sidebar"><div class="brand">N‑Ticket</div><div class="navitem active">我的 ISO</div><div class="navitem">待辦任務</div><div class="navitem">風險與控制</div><div class="navitem">ISO 文件</div><div class="navitem">執行證據</div></aside>
+    <div class="ui-main">
+      <div class="ui-head"><div><div class="ui-title">ISO 27001 導入進度</div><div class="ui-sub">目前階段：組織情境與適用範圍</div></div><button class="btn ghost">查看完整計畫</button></div>
+      <div class="ui-grid">
+        <div class="ui-card"><h4>整體完成度｜36%</h4><div class="progress-line"><i></i></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px"><div><div style="font-size:34px;font-weight:800;color:#0b69ac">12</div><div class="ui-sub">已完成任務</div></div><div><div style="font-size:34px;font-weight:800;color:#d08110">4</div><div class="ui-sub">目前阻塞</div></div><div><div style="font-size:34px;font-weight:800;color:#317b55">7</div><div class="ui-sub">已核准文件</div></div></div><h4 style="margin-top:30px">目前 Gate</h4><div class="next"><b>!</b><span><strong>尚缺：</strong>內部稽核員與資訊資產負責人</span></div><div class="next"><b>!</b><span><strong>尚缺：</strong>認證範圍確認</span></div></div>
+        <div class="ui-card"><h4>接下來三件事</h4><div class="next"><b>1</b><span><strong>確認 ISMS 適用範圍</strong><br>負責人：ISO 推動人</span></div><div class="next"><b>2</b><span><strong>完成資產管理差距評估</strong><br>預計 20 分鐘</span></div><div class="next"><b>3</b><span><strong>指派文件核准人</strong><br>完成後開啟文件建立階段</span></div><button class="btn" style="margin-top:18px">繼續目前階段</button></div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-no">07</div>
+</section>
+
+<section class="slide" data-title="第一版範圍" id="mvp-scope">
+  <div class="eyebrow">MVP Scope</div><h2>第一版只證明一件事：<span class="accent">空白組織能被引導到開始運作</span></h2>
+  <div class="scope-table">
+    <div class="cell head">能力</div><div class="cell head">8–12 週 MVP</div><div class="cell head">後續完整平台</div>
+    <div class="cell">ISO 標準</div><div class="cell yes">ISO 27001:2022，一套 Golden Scenario</div><div class="cell later">多產業場景、多 ISO 標準</div>
+    <div class="cell">組織設定</div><div class="cell yes">基本資料、範圍、據點、角色</div><div class="cell later">複雜多據點與顧問跨組織管理</div>
+    <div class="cell">差距評估</div><div class="cell yes">20–30 題，生成任務與文件</div><div class="cell later">完整條文、動態追問與成熟度分析</div>
+    <div class="cell">執行管理</div><div class="cell yes">既有工單、流程、文件與證據</div><div class="cell later">週期管理、跨控制措施證據矩陣</div>
+    <div class="cell">治理循環</div><div class="cell yes">進度、Gate、阻塞與下一步</div><div class="cell later">風險、SoA、內稽、管理審查、持續改善</div>
+    <div class="cell">場景升版</div><div class="cell yes">保留來源版本，禁止覆蓋組織資料</div><div class="cell later">差異比較與三方合併</div>
+  </div>
+  <div class="slide-no">08</div>
+</section>
+
+<section class="slide" data-title="開發時程" id="timeline">
+  <div class="eyebrow">Delivery Roadmap</div><h2>分段投資、每一階段都有<span class="accent">可見且可停損的驗收點</span></h2>
+  <div class="timeline">
+    <div class="phase"><div class="time">2–3 週</div><div class="dot"></div><h3>垂直切片</h3><p>分配場景、建立專案、5 個任務、1 份文件、進度畫面。</p></div>
+    <div class="phase"><div class="time">8–12 週</div><div class="dot"></div><h3>可驗收 MVP</h3><p>新公司走完基本資料、差距評估、任務與文件建置。</p></div>
+    <div class="phase"><div class="time">12–18 週</div><div class="dot"></div><h3>正式上線</h3><p>權限隔離、異常處理、稽核軌跡、升版與部署驗證。</p></div>
+    <div class="phase"><div class="time">6–9 個月</div><div class="dot"></div><h3>完整平台</h3><p>風險、SoA、證據矩陣、內稽、管理審查與多標準。</p></div>
+  </div>
+  <div class="card" style="margin-top:64px;display:grid;grid-template-columns:250px 1fr;align-items:center;gap:28px;border-color:#346c92">
+    <div class="kicker">管理原則</div><p>不要一次核准 6–9 個月；先用 2–3 週證明核心鏈路，再依驗收結果決定是否進入 MVP。</p>
+  </div>
+  <div class="slide-no">09</div>
+</section>
+
+<section class="slide" data-title="資源與前提" id="resources">
+  <div class="eyebrow">Resources & Assumptions</div><h2>工期成立的前提：<span class="accent">技術與 ISO 內容必須平行工作</span></h2>
+  <div class="grid cols-3" style="margin-top:44px">
+    <div class="card"><div class="label">核心開發</div><h3 style="font-size:38px;margin-top:17px">1 位全職開發者</h3><p>熟悉 N‑Ticket 組織、工單、流程及文件控制。若 2 位熟悉開發者，MVP 可望縮短至 6–8 週。</p></div>
+    <div class="card"><div class="label">ISO 內容</div><h3 style="font-size:38px;margin-top:17px">1 位內容負責人</h3><p>整理 Golden Scenario：階段、任務順序、角色、文件、問卷、證據與完成條件。</p></div>
+    <div class="card"><div class="label">產品驗收</div><h3 style="font-size:38px;margin-top:17px">固定週期決策</h3><p>每週確認範圍與規則；若內容未鎖定，資料模型與畫面反覆修改，工期可能增加 20–30%。</p></div>
+  </div>
+  <div class="grid cols-2" style="margin-top:28px">
+    <div class="card"><h3>第一版明確不做</h3><div class="list"><div>AI 直接產生並發布正式文件</div><div>同時支援多種 ISO 標準</div><div>完整顧問跨公司營運平台</div></div></div>
+    <div class="card"><h3>第一版必須守住</h3><div class="list"><div>組織資料隔離與權限檢查</div><div>場景母版與組織實例分離</div><div>已核准資料不得被升版覆蓋</div></div></div>
+  </div>
+  <div class="slide-no">10</div>
+</section>
+
+<section class="slide" data-title="主要風險與控制" id="risks">
+  <div class="eyebrow">Risk Control</div><h2>最主要的風險不是技術，而是<span class="accent">範圍失控與治理規則不清</span></h2>
+  <div style="margin-top:35px">
+    <div class="risk-row"><div class="head">風險</div><div class="head">可能影響</div><div class="head">控制方式</div></div>
+    <div class="risk-row"><div class="risk">把場景當成文件複製</div><div class="control">無法追蹤任務、證據與持續改善</div><div class="gate">建立場景項目與組織實例，文件只是其中一部分</div></div>
+    <div class="risk-row"><div class="risk">ISO 內容持續變動</div><div class="control">資料模型與 UI 重工，工期增加</div><div class="gate">先凍結一套 Golden Scenario，變更走版本管理</div></div>
+    <div class="risk-row"><div class="risk">跨組織資料外洩</div><div class="control">附件或 API 可能被越權存取</div><div class="gate">所有 API、查詢與下載都強制檢查 organization_id</div></div>
+    <div class="risk-row"><div class="risk">場景升版覆蓋客製內容</div><div class="control">破壞已核准文件與執行紀錄</div><div class="gate">保留母版版本與 override；衝突需人工合併</div></div>
+    <div class="risk-row"><div class="risk">一次做完整平台</div><div class="control">6–9 個月後才知道方向是否成立</div><div class="gate">2–3 週先驗證垂直鏈路，逐階段決策</div></div>
+  </div>
+  <div class="slide-no">11</div>
+</section>
+
+<section class="slide" data-title="第一階段驗收" id="acceptance">
+  <div class="eyebrow">First Decision Gate</div><h2>2–3 週後，上級可以直接看到並操作的結果</h2>
+  <div class="grid cols-2" style="margin-top:38px">
+    <div class="card light"><div class="num" style="color:#0b69ac">01</div><h3>建立空白組織</h3><p>沒有預先建立 ISO 工單與文件。</p></div>
+    <div class="card light"><div class="num" style="color:#0b69ac">02</div><h3>分配 ISO 27001 場景</h3><p>指定 Golden Scenario 與場景版本。</p></div>
+    <div class="card light"><div class="num" style="color:#0b69ac">03</div><h3>自動產生實例</h3><p>建立一個專案、階段、5 個任務與 1 份文件。</p></div>
+    <div class="card light"><div class="num" style="color:#0b69ac">04</div><h3>完成一條實際鏈路</h3><p>任務進入流程中心、文件進入文件控制、進度同步更新。</p></div>
+  </div>
+  <div class="answer-line" style="margin-top:38px">驗收通過，再投入 8–12 週 MVP；不通過，就在小成本階段停止或調整。</div>
+  <div class="slide-no">12</div>
+</section>
+
+<section class="slide" data-title="決策請求" id="decision">
+  <div class="eyebrow">Decision Request</div><h2>本次希望取得的核准</h2>
+  <div class="decision">
+    <div class="ask"><div class="caption">PROPOSED FIRST STEP</div><div class="big">核准<br>2–3 週</div><p>完成 N‑Ticket ISO 導入引導平台的垂直切片，並以真實組織、工單、文件與進度畫面驗收。</p></div>
+    <div class="decision-list">
+      <div class="decision-item"><b>1</b><div><h3>指定一套 Golden Scenario</h3><p>以 N‑Partner 現行 ISO 27001 制度作為第一版內容來源。</p></div></div>
+      <div class="decision-item"><b>2</b><div><h3>指定技術與 ISO 內容負責人</h3><p>開發與內容整理平行進行，每週固定確認。</p></div></div>
+      <div class="decision-item"><b>3</b><div><h3>以垂直鏈路作為 Gate</h3><p>看得到、能操作、資料有落地，才決定是否進入 8–12 週 MVP。</p></div></div>
+    </div>
+  </div>
+  <div class="quote" style="font-size:43px;margin-top:38px">目標不是再做一套文件庫，而是讓 N‑Ticket 成為企業建立與運作 ISO 的<span>數位引導系統。</span></div>
+  <div class="slide-no">13</div>
+</section>
+
+</main>
+</div>
+<button class="present-exit" id="exitPresent">切回網頁模式 Esc</button>
+<nav class="controls" aria-label="簡報控制">
+  <div class="progress" id="progress"></div>
+  <div class="group"><button id="prev" aria-label="上一頁">←</button><button id="next" aria-label="下一頁">→</button><span class="counter" id="counter">01 / 13</span></div>
+  <div class="help">方向鍵／Space 翻頁 · O 總覽 · F 全螢幕 · P 列印</div>
+  <div class="group"><button id="overviewBtn">總覽</button><button id="printBtn">列印 / PDF</button><button id="fullBtn">全螢幕</button></div>
+</nav>
+<div class="overview" id="overview" role="dialog" aria-modal="true" aria-label="簡報總覽">
+  <div class="overview-head"><h2>簡報總覽</h2><button class="btn" id="closeOverview">關閉 Esc</button></div><div class="overview-grid" id="overviewGrid"></div>
+</div>
+<script>
+(()=>{
+ const slides=[...document.querySelectorAll('.slide')],deck=document.getElementById('deck'),viewport=document.getElementById('viewport');
+ const counter=document.getElementById('counter'),progress=document.getElementById('progress'),overview=document.getElementById('overview'),grid=document.getElementById('overviewGrid');
+ const key='nticket-iso-proposal-slide-v1';let index=Math.min(Number(localStorage.getItem(key)||0),slides.length-1);
+ function fit(){const w=viewport.clientWidth,h=viewport.clientHeight,s=Math.min(1,w/1920,h/1080);deck.style.transform=`translate(-50%,-50%) scale(${s})`}
+ function show(n){index=Math.max(0,Math.min(slides.length-1,n));slides.forEach((s,i)=>s.classList.toggle('active',i===index));counter.textContent=`${String(index+1).padStart(2,'0')} / ${String(slides.length).padStart(2,'0')}`;progress.style.width=`${((index+1)/slides.length)*100}%`;localStorage.setItem(key,index);fit()}
+ function openOverview(){overview.classList.add('open');document.getElementById('closeOverview').focus()}
+ function closeOverview(){overview.classList.remove('open')}
+ function toggleFull(){if(!document.fullscreenElement)document.documentElement.requestFullscreen?.();else document.exitFullscreen?.()}
+ slides.forEach((s,i)=>{const b=document.createElement('button');b.className='thumb';b.innerHTML=`<b>${String(i+1).padStart(2,'0')}</b><span>${s.dataset.title}</span>`;b.onclick=()=>{show(i);closeOverview()};grid.appendChild(b)});
+ document.getElementById('prev').onclick=()=>show(index-1);document.getElementById('next').onclick=()=>show(index+1);document.getElementById('overviewBtn').onclick=openOverview;document.getElementById('closeOverview').onclick=closeOverview;document.getElementById('fullBtn').onclick=toggleFull;document.getElementById('exitPresent').onclick=()=>document.exitFullscreen?.();document.getElementById('printBtn').onclick=()=>window.print();
+ addEventListener('resize',fit);addEventListener('fullscreenchange',fit);addEventListener('keydown',e=>{if(overview.classList.contains('open')){if(e.key==='Escape')closeOverview();return}if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();show(index+1)}else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();show(index-1)}else if(e.key==='Home')show(0);else if(e.key==='End')show(slides.length-1);else if(e.key.toLowerCase()==='o')openOverview();else if(e.key.toLowerCase()==='f')toggleFull();else if(e.key.toLowerCase()==='p'){e.preventDefault();window.print()}});
+ show(index);fit();
+})();
+</script>
+</body>
+</html>
